@@ -74,7 +74,7 @@ function ajaxPeople(boardNumber) {
   let today = new Date();
   let formatDate = today.toISOString().split('T')[0];
   let xhr = $.ajax({
-      url: 'ajax/getPeople_'+formatDate+'_'+boardNumber,
+      url: 'ajax/getPeople_'+formatDate+'_'+boardNumber+'.json',
       type: 'GET',
       // async: false,
       dataType: 'json',
