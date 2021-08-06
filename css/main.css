@@ -4,7 +4,7 @@
   --blue: #00a0e3;
   --white-text: #fff;
   --white-background: #fff;
-  --logo-title: 3em;
+  --logo-title: 2em;
   --skydive_icon: 2em;
   --color-grey: grey;
   --color-red: red;
@@ -195,7 +195,7 @@ iframe {
   justify-content: space-between;
   background-color: var(--blue);
   color: var(--white-text);
-  height: 4em;
+  height: 2.5em;
   box-shadow: 0px 0.3em 0.3em rgba(15, 15, 15, 0.5);
   z-index: 999;
   border-top: 0.4em solid var(--mondialGreen);

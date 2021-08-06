@@ -7,7 +7,7 @@ function ajaxLoads()
 {
   var xhr = $.ajax({
     	url: 'ajax/getLoads.json',
-      async: false,
+      // async: false,
       type: 'GET',
       dataType: 'json',
       beforeSend : function() {  
@@ -76,7 +76,7 @@ function ajaxPeople(boardNumber) {
   let xhr = $.ajax({
       url: 'ajax/getPeople_'+formatDate+'_'+boardNumber,
       type: 'GET',
-      async: false,
+      // async: false,
       dataType: 'json',
       cache: false,
       beforeSend : function() {  
@@ -152,7 +152,7 @@ function getTableCellItem(topic, ...other) {
   {
     case "info":
       html = `
-      <div class="boardItem shadow d-flex justify-content-space-between padding-0_2em" data-boardnumber="${number}">
+      <div class="boardItem shadow d-flex justify-content-space-between padding-0_2em padding-0_1em" data-boardnumber="${number}">
         <div class="d-flex flex-direction-column flex0_1_auto11">
           <div class="bold">
             № ${number}
