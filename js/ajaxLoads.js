@@ -6,7 +6,7 @@ function changeTab() {
 function ajaxLoads()
 {
   var xhr = $.ajax({
-    	url: 'ajax/getLoads.json',
+    	url: 'ajax/getLoads.json?'+Math.random().toString().substr(2, 8),
       // async: false,
       type: 'GET',
       dataType: 'json',
@@ -74,7 +74,7 @@ function ajaxPeople(boardNumber) {
   let today = new Date();
   let formatDate = today.toISOString().split('T')[0];
   let xhr = $.ajax({
-      url: 'ajax/getPeople_'+formatDate+'_'+boardNumber+'.json',
+      url: 'ajax/getPeople_'+formatDate+'_'+boardNumber+'.json?'+Math.random().toString().substr(2, 8),
       type: 'GET',
       // async: false,
       dataType: 'json',
