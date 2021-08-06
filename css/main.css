@@ -484,8 +484,18 @@ th, td {
   flex-grow: 1;
 }
 
-.flex-flow-row-wrap{
-  flex-flow: row wrap;
+@media (orientation: landscape) 
+{
+  .flex-flow-row-wrap{
+    flex-flow: row wrap;
+  }
+}
+
+@media (orientation: portrait) 
+{
+  .flex-flow-row-wrap{
+    flex-flow: column wrap;
+  }
 }
 
 .bold{
