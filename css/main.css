@@ -63,8 +63,20 @@
   :root {
     --base-size: 0.8em;
   }
+  .topHead {
+    display: none !important;
+  }
   #timeTopHead, .topHeadMondial {
-    display:none;
+    display:block;
+  }
+
+  .boardItem {
+    flex: 1 1 50%;
+  }
+
+  .table100percent {
+    flex-flow: row wrap;
+    flex-direction: row !important;
   }
 }
 
@@ -331,7 +343,6 @@ th, td {
 .table100percent {
   display: flex;
   flex-direction: column;
-  /* height: 100%; */
 }
 
 .table100-head {
@@ -431,7 +442,7 @@ th, td {
 }
 
 .error {
-  color:red;
+  display: none !important;
 }
 
 .dateTitle {

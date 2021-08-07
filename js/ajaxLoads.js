@@ -40,6 +40,7 @@ function ajaxLoads()
         $("#timeTopHead span").html(getDate("time"));
       },
     	success: function(data) {
+        $('.errorinfo').addClass("none");
     		// var tab = $("#flightSheduleTab");
     		$("#loading").fadeOut("slow");
     		if (data["loads"].length == 0)
@@ -79,6 +80,8 @@ function ajaxLoads()
     		}       	
     	},
     	error: function() {
+        $('.errorinfo').removeClass("none");
+        // $('.errorinfo').toggleClass('error');
         var html = getTableCellItem("error");
         $("#flightSheduleTab").html(html);
       }
@@ -107,6 +110,7 @@ function ajaxPeople(boardNumber) {
         $("#loading").fadeIn("slow");
       },
     	success: function(data) {
+        $('.errorinfo').addClass("none");
         $("#loading").fadeOut("slow");
     		if (data["people"].length == 0)
     		{
@@ -143,6 +147,8 @@ function ajaxPeople(boardNumber) {
         }       	 
     	},
     	error: function() {
+        // $('.errorinfo').toggleClass('error');
+        $('.errorinfo').removeClass("none");
         html = getTableCellItem("error");
         xhr = null;  
         changeTab();
@@ -209,9 +215,7 @@ function getTableCellItem(topic, ...other) {
       break;
     case "error":
       html = `
-      <div class="d-flex justify-content-center padding-0_2em bgColor-red flex0_1_auto">
-        <div>Server connection error</div>
-      </div>
+      
       <div class="d-flex justify-content-center flex1_1_auto flex-align-items-center flex-direction-column">
         <div><font class="font-size-5em">503</font></div>
         <div>Service Unavailable</div>
