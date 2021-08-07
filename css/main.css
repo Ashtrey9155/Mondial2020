@@ -12,6 +12,10 @@
   --mondialGreen: #82bb31;
 }
 
+#timeTopHead, .topHeadMondial {
+  display:none;
+}
+
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 1200px) {
   :root {
