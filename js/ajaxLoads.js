@@ -1,3 +1,23 @@
+let aircraftsObj = {
+  "GreyL410УВПЭ3Siberia": {
+    "name": "Grey L-410",
+    "overPlaces": 18
+  },
+  "BlueL410УВПЭ3Ivanov": {
+    "name": "Blue L-410",
+    "overPlaces": 18
+  },
+  "TVS2МСRA07497": {
+    "name": "TVS 07497",
+    "overPlaces": 12
+  }
+  ,
+  "AN-2": {
+    "name": "AN-2",
+    "overPlaces": 10
+  }
+};
+
 function changeTab() {
   $(".loadsTab").toggle();
   $(".loadsPeo").toggle();
@@ -16,7 +36,8 @@ function ajaxLoads()
         $("#loading").html(html);
         $("#loading").fadeIn("slow");
         $("#dateInfo font").html(getDate("date"));
-        $("#time font").html(getDate("time"));
+        $("#time span").html(getDate("time"));
+        $("#timeTopHead span").html(getDate("time"));
       },
     	success: function(data) {
     		// var tab = $("#flightSheduleTab");
@@ -30,28 +51,28 @@ function ajaxLoads()
     		else
     		{
     			var html = "";
-    			
+    			var sortedObj = sortObj(data["loads"]);
           var i;
           var countLoads = data["loads"].length;
+          // var countLoads = sortedObj.length;
 
           var textCountLoads;
           switch (true) {
             case countLoads ===1:
-              textCountLoads = countLoads + " запись во взлете";
-              break;
-            case countLoads < 5:
-              textCountLoads = countLoads + " записи во взлете";
+              textCountLoads = countLoads + " flight";
               break;
             default:
-              textCountLoads = countLoads + " записей во взлете";
+              textCountLoads = countLoads + " flights";
           }
 
-    			$("#dateInfo div").html("<font>" + getDate("date") + " " + "</font><font>" + textCountLoads + "</font>");
+    			$("#dateInfo div").html("<span class=\"topHead\">" + getDate("date") + " " + "</span><span>" + textCountLoads + "</span>");
     			for(i = 0; i < countLoads; i++)
     			{
     				var ld = data["loads"][i];
+            var objaircraft = aircraftsObj[normolize(ld["plane"])];
+            // console.log("OBJ: " + objaircraft);
     				if (ld["freePlaces"] < 0) ld["freePlaces"] = 0;
-          html += getTableCellItem("info", ld["plane"], ld["number"], ld["timeLeft"], ld["status"], ld["freePlaces"]);
+          html += getTableCellItem("info", objaircraft["name"], ld["number"], ld["timeLeft"], objaircraft["overPlaces"], ld["freePlaces"]);
     			}		
     		   	html = html + "</tbody></table>";
              $("#flightSheduleTab").html(html);
@@ -146,7 +167,7 @@ function getWeather()
 function getTableCellItem(topic, ...other) {
   var html;
 
-  var [plane, number, timeLeft, status, freePlaces, n, pName] = other;
+  var [plane, number, timeLeft, overPlaces, freePlaces, n, pName] = other;
 
   switch (topic)
   {
@@ -161,12 +182,17 @@ function getTableCellItem(topic, ...other) {
             ${plane}
           </div>
         </div>
-        <div class="d-flex flex-direction-column flex-end flex0_1_em11">
-          <div class="color-grey">
-            ${timeLeft} min
+        <div class="d-flex">
+          <div class="imgSkydive">
+            <img src="images/skydiving-man-icon.png">
           </div>
-          <div class="d-flex flex-align-items-center color-grey">
-            <img src="images/skydiving-man-icon.png">19 / ${19 - freePlaces}
+          <div class="d-flex flex-direction-column flex-end flex0_1_em11 width3_2em">
+            <div class="color-grey">
+              ${timeLeft} min
+            </div>
+            <div class="d-flex flex-align-items-center color-grey">
+              ${overPlaces - freePlaces} / ${overPlaces}
+            </div>
           </div>
         </div>
       </div>`;
@@ -249,14 +275,26 @@ function getDate(dt) {
   return answer;
 }
 
+function sortObj(arr) {
+  return arr.sort((a, b) => (a.number > b.number) ? 1 : -1);
+}
 
+function normolize(name) {
+  name = name.replace(/\s/g, '');
+  return name;
+}
 /*/////////////////CLICK ON THE TABLO////////////////// */
 $('#flightSheduleTab').on('click','.boardItem', function() {
-  var id = $(this).get(0);
-  var boardNumber = id.dataset.boardnumber;
+    var id = $(this).get(0);
+    var boardNumber = id.dataset.boardnumber;
+    displayPeople(boardNumber)
+});
+
+function displayPeople(boardNumber) {
   ajaxPeople(boardNumber);
   changeTab();
-});
+}
+
 
 $('#peopleSheduleTab').on('click','', function() {
   changeTab();
