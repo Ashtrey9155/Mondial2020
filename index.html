@@ -15,25 +15,27 @@
 <!--===============================================================================================-->
 </head>
 <body>
+	<div class="container-background"></div>
 	<div class="container-table100 bgImage">
-		<div class="container-background"></div>
 		<div class="wrap-table100">
 			<div class="table100 head">
-				<div class="table padding-0_1em flex0_1_auto padding-bottom-top">
+				<div class="topHead table padding-0_1em flex0_1_auto padding-bottom-top">
 							<div class="body d-flex flex-align-items-center justify-content-space-between">
-								<div id="time" ><font>10:20</font></div>
+								<div id="time" ><span>10:20</span></div>
 								<div colspan="2" class="d-flex flex-align-items-center justify-content-space-between" style="text-align: right; padding: 0;">
 									<img src="images/icons/Logo.png" ></img>
-									<font>MONDIAL</font>
+									<span>MONDIAL</span>
 								</div>
 							</div>
 				</div>
 				<div class="table100 thead padding-0_1em flex0_1_auto">
-								<div class="th">
+								<div id="timeTopHead" ><span>10:20</span></div>
+								<div class="topHeadMondial" ><span>MONDIAL2020</span></div>
+								<div class="th topHead">
 									<div class="fontSize0_8em">Flight Table</div>
 								</div>
 								<div class="th" id="dateInfo">
-									<div class="d-flex flex-direction-column fontSize0_8em"><font class="dateTitle"></font></div>
+									<div class="d-flex flex-direction-column fontSize0_8em"><span class="dateTitle"></span></div>
 								</div>
 				</div>
 				<div class="table100 loadsTab flex1_1_auto">
@@ -60,7 +62,7 @@
 		$(document).ready(function () {
 			ajaxLoads();
 			setInterval(function() {ajaxLoads(); }, 15000);
-			getWeather();
+			// getWeather();
 		});
 	</script>
 
