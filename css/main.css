@@ -1,6 +1,6 @@
 /*/ Базовые переменные */
 :root {
-  --base-size: 3em;
+  --base-size: 2em;
   --blue: #00a0e3;
   --white-text: #fff;
   --white-background: #fff;
@@ -8,6 +8,7 @@
   --skydive_icon: 2em;
   --color-grey: grey;
   --color-red: red;
+  --color-yellow: rgb(255, 196, 0);
   --dot-color: #000;
   --mondialGreen: #82bb31;
 }
@@ -17,6 +18,24 @@
 }
 
 /* Medium Devices, Desktops */
+@media (orientation: landscape) {
+  .boardItem {
+    flex: 1 1 50%;
+  }
+
+  .table100percent {
+    flex-flow: row wrap;
+    flex-direction: row !important;
+  }
+}
+
+@media (orientation: portrait) {
+  .table100percent {
+    /* flex-flow: row wrap; */
+    flex-direction: column !important;
+  }
+}
+
 @media only screen and (max-width : 1200px) {
   :root {
     --base-size: 2em;
@@ -48,14 +67,14 @@
     display:block;
   }
 
-  .boardItem {
+  /* .boardItem {
     flex: 1 1 50%;
   }
 
   .table100percent {
     flex-flow: row wrap;
     flex-direction: row !important;
-  }
+  } */
 }
 
 /* Extra Small Devices, Phones */
@@ -70,14 +89,14 @@
     display:block;
   }
 
-  .boardItem {
+  /* .boardItem {
     flex: 1 1 50%;
   }
 
   .table100percent {
-    flex-flow: row wrap;
-    flex-direction: row !important;
-  }
+    /* flex-flow: row wrap; 
+    flex-direction: column !important;
+  } */
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -251,7 +270,7 @@ iframe {
 .container-table100 {
   width: 100%;
   min-height: 100vh;
-  background: #e5e5e5;
+  background: #90d5f4;
   font-size: var(--base-size);
   display: -webkit-box;
   display: -webkit-flex;
@@ -552,6 +571,10 @@ th, td {
   background-color:var(--color-red);
 }
 
+.bgColor-yellow{
+  background-color: var(--color-yellow);
+}
+
 .font-size-5em{
   font-size: 5em;
 }
@@ -658,6 +681,7 @@ th, td {
   left: 0;
   background: center / contain no-repeat url("../images/bgMondial.png");
   opacity: 0.5;
+  background-size: 50%;
 }
 
 .imgSkydive {
