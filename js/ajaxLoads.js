@@ -216,7 +216,7 @@ function getTableCellItem(topic, ...other) {
     case "error":
       html = `
       
-      <div class="d-flex justify-content-center flex1_1_auto flex-align-items-center flex-direction-column">
+      <div class="d-flex justify-content-center flex1_1_auto flex-align-items-center flex-direction-column error-align-center ">
         <div><font class="font-size-5em">503</font></div>
         <div>Service Unavailable</div>
       </div>

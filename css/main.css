@@ -356,7 +356,7 @@ th, td {
 .table100.head {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .table100percent {
@@ -462,6 +462,12 @@ th, td {
 
 .error {
   display: none !important;
+}
+
+.error-align-center {
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 
 .dateTitle {
