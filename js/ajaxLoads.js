@@ -95,8 +95,8 @@ function ajaxLoads()
 
 
 function ajaxPeople(boardNumber) {
-  let today = new Date();
-  let formatDate = today.toISOString().split('T')[0];
+  // let today = new Date();
+  let formatDate = getDate();
   let xhr = $.ajax({
       url: 'ajax/getPeople_'+formatDate+'_'+boardNumber+'.json?'+Math.random().toString().substr(2, 8),
       type: 'GET',
@@ -214,8 +214,7 @@ function getTableCellItem(topic, ...other) {
       `;
       break;
     case "error":
-      html = `
-      
+      html = ` 
       <div class="d-flex justify-content-center flex1_1_auto flex-align-items-center flex-direction-column error-align-center ">
         <div><font class="font-size-5em">503</font></div>
         <div>Service Unavailable</div>
@@ -224,8 +223,8 @@ function getTableCellItem(topic, ...other) {
       break;
     case "noLoads":
         html = `
-        <div class="d-flex justify-content-space-between padding-0_2em justify-content-center flex1_1_auto flex-align-items-center">
-          <div>No flights</div>
+        <div class="d-flex justify-content-center flex1_1_auto flex-align-items-center flex-direction-column error-align-center ">
+          <div><font class="font-size-3em">No flights</font></div>
         </div>
         `;
         break;
@@ -238,8 +237,8 @@ function getTableCellItem(topic, ...other) {
       break;
     default:
       html = `
-      <div class="d-flex justify-content-space-between padding-0_2em flex-grow-1">
-        <div class="width100">Flights is empty</div>
+      <div class="d-flex justify-content-center flex1_1_auto flex-align-items-center flex-direction-column error-align-center ">
+        <div><font class="font-size-3em">Flights is empty</font></div>
       </div>
       `;
       break;
@@ -266,6 +265,7 @@ function getDate(dt) {
     ];
   var formatDate = dd + " " + monthNamesAng[mm] + " " + YYYY;
   var formatTime = hh + ":" +  MM;
+  var dateToday = YYYY + "-" + MM + "-" + dd;
   switch(dt) {
     case "date":
       answer = formatDate;
@@ -274,7 +274,7 @@ function getDate(dt) {
       answer = formatTime;
       break;
     default:
-      answer = formatDate;
+      answer = dateToday;
   }
   return answer;
 }
@@ -300,6 +300,10 @@ function displayPeople(boardNumber) {
 }
 
 
-$('#peopleSheduleTab').on('click','', function() {
+$('.loadsPeo').on('click','', function() {
   changeTab();
 });
+
+// $('#peopleSheduleTab').on('click','', function() {
+//   changeTab();
+// });

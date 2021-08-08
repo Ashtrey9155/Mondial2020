@@ -565,6 +565,10 @@ th, td {
   width: 100%;
 }
 
+.height100vh{
+  height: 100vh;
+}
+
 .width3_2em {
   width: 3.5em;
 }
@@ -583,6 +587,10 @@ th, td {
 
 .font-size-5em{
   font-size: 5em;
+}
+
+.font-size-3em{
+  font-size: 3em;
 }
 
 .none {
@@ -695,4 +703,12 @@ th, td {
   flex-direction: column;
   justify-content: flex-end;
   opacity: 0.5;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-100 {
+  z-index: 100;
 }
