@@ -253,7 +253,7 @@ function getDate(dt) {
   var dd = today.getDate();
   var dd0 = (dd < 10) ? "0" + dd : dd;
   var mm = today.getMonth();
-  var mm0 = (mm < 10) ? "0" + mm : mm;
+  var mm0 = ((mm + 1) < 10) ? "0" + mm + 1 : mm + 1;
   var YYYY = today.getFullYear();
   var hh = today.getHours();
   var min = today.getMinutes();
