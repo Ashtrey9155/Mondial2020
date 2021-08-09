@@ -265,7 +265,7 @@ function getDate(dt) {
     ];
   var formatDate = dd + " " + monthNamesAng[mm] + " " + YYYY;
   var formatTime = hh + ":" +  MM;
-  var dateToday = YYYY + "-" + MM + "-" + dd;
+  var dateToday = YYYY + "-" + mm + "-" + dd;
   switch(dt) {
     case "date":
       answer = formatDate;
