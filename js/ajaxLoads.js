@@ -252,17 +252,17 @@ function getDate(dt) {
   var today = new Date();
   var dd = today.getDate();
   var dd0 = (dd < 10) ? "0" + dd : dd;
-  var mm = today.getMonth();
-  var mm0 = ((mm + 1) < 10) ? "0" + mm + 1 : mm + 1;
+  var mm = today.getMonth() + 1;
+  var mm0 = ((mm) < 10) ? "0" + mm : mm;
   var YYYY = today.getFullYear();
   var hh = today.getHours();
   var min = today.getMinutes();
   var MM = (min < 10) ? "0" + min : min;
 
-  var  monthNames = ["Янв", "Фев", "Мар", "Апр", "Май", "Июн",
+  var  monthNames = ["", "Янв", "Фев", "Мар", "Апр", "Май", "Июн",
         "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"
       ];
-  var  monthNamesAng = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+  var  monthNamesAng = ["", "Jan", "Feb", "Mar", "Apr", "May", "June",
         "July", "Aug", "Sept", "Oct", "Nov", "Dec"
     ];
   var formatDate = dd + " " + monthNamesAng[mm] + " " + YYYY;
