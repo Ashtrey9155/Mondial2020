@@ -251,7 +251,9 @@ function getDate(dt) {
   var answer;
   var today = new Date();
   var dd = today.getDate();
+  var dd0 = (dd < 10) ? "0" + dd : dd;
   var mm = today.getMonth();
+  var mm0 = (mm < 10) ? "0" + mm : mm;
   var YYYY = today.getFullYear();
   var hh = today.getHours();
   var min = today.getMinutes();
@@ -265,7 +267,7 @@ function getDate(dt) {
     ];
   var formatDate = dd + " " + monthNamesAng[mm] + " " + YYYY;
   var formatTime = hh + ":" +  MM;
-  var dateToday = YYYY + "-" + mm + "-" + dd;
+  var dateToday = YYYY + "-" + mm0 + "-" + dd0;
   switch(dt) {
     case "date":
       answer = formatDate;
