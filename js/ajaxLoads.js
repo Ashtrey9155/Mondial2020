@@ -35,7 +35,7 @@ function ajaxLoads()
         // $("#flightSheduleTab").html(html);
         $("#loading").html(html);
         $("#loading").fadeIn("slow");
-        $("#dateInfo font").html(getDate("date"));
+        $("#dateInfo span").html(getDate("date"));
         $("#time span").html(getDate("time"));
         $("#timeTopHead span").html(getDate("time"));
       },
