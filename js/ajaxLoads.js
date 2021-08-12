@@ -309,8 +309,8 @@ $('.loadsPeo').on('click','', function() {
 function loadMessage(){
   $.ajax({
     url: '/ajax/message.json' ,
-    type:'json',
-    datatype: 'get',
+    type:'get',
+    datatype: 'json',
     success: function(data){
         showMessage(data);
     }
