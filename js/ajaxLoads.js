@@ -299,13 +299,25 @@ $('#flightSheduleTab').on('click','.boardItem', function() {
 function displayPeople(boardNumber) {
   ajaxPeople(boardNumber);
   changeTab();
-}
+};
 
 
 $('.loadsPeo').on('click','', function() {
   changeTab();
 });
 
-// $('#peopleSheduleTab').on('click','', function() {
-//   changeTab();
-// });
+function loadMessage(){
+  $.ajax({
+    url: '/ajax/message.json' ,
+    type:'json',
+    datatype: 'get',
+    success: function(data){
+        showMessage(data);
+    }
+});
+};
+
+function showMessage(data) {
+  $("#infoMessage").html(data.msg);
+  $("#infoMessage").removeClass(none);
+};

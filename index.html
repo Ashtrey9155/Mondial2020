@@ -76,7 +76,8 @@
 	<script>
 		$(document).ready(function () {
 			ajaxLoads();
-			setInterval(function() {ajaxLoads(); }, 15000);
+			loadMessage();
+			setInterval(function() {ajaxLoads(); loadMessage();}, 15000);
 			// getWeather();
 		});
 	</script>
