@@ -308,7 +308,7 @@ $('.loadsPeo').on('click','', function() {
 
 function loadMessage(){
   $.ajax({
-    url: '/ajax/message.json'+Math.random().toString().substr(2, 8) ,
+    url: '/ajax/message.json?'+Math.random().toString().substr(2, 8) ,
     type:'get',
     datatype: 'json',
     success: function(data){
