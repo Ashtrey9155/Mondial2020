@@ -308,7 +308,7 @@ $('.loadsPeo').on('click','', function() {
 
 function loadMessage(){
   $.ajax({
-    url: '/ajax/message.json' ,
+    url: '/ajax/message.json'+Math.random().toString().substr(2, 8) ,
     type:'get',
     datatype: 'json',
     success: function(data){
@@ -318,6 +318,11 @@ function loadMessage(){
 };
 
 function showMessage(data) {
-  $("#infoMessage").html(data.msg);
-  $("#infoMessage").removeClass(none);
+  if(data.msg.length === 0 ) {
+    $("#infoMessage").html('');
+  } else {
+    $(".infoMessage").removeClass('bgColor-light-green');
+    $(".infoMessage").addClass('bgColor-yellow');
+    $("#infoMessage").html(data.msg);
+  }
 };
