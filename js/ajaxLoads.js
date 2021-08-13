@@ -48,6 +48,7 @@ function ajaxLoads()
           let html = getTableCellItem("noLoads");
           $("#flightSheduleTab").html(html);
           $("#flightSheduleTab td").fadeIn("slow");
+          $("#dateInfo div").html("<span class=\"topHead\">" + getDate("date") + " " + "</span><span>0 flights</span>");
     		}
     		else
     		{
