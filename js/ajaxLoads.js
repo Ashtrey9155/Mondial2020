@@ -321,16 +321,11 @@ function loadMessage(){
 function showMessage(data) {
   let dateLeft = data.until;
   let today = new Date;
-  let utc_timestamp = (Date.UTC( today.getUTCFullYear(),
-      today.getUTCMonth(),
-      today.getUTCDate(),
-      hours + 7,
-      minutes,
-      0, 0) / 1000);
-  if(data.msg.length === 0 ) {
+  let timeStamp = today.getTime();
+  if(data.msg.length === 0 || dateLeft < timeStamp) {
     $("#infoMessage").html('');
   } 
-  if(data.msg.length !== 0 && dateLeft <= utc_timestamp) {
+  if(data.msg.length !== 0 && dateLeft >= timeStamp) {
     $(".infoMessage").removeClass('bgColor-light-green');
     $(".infoMessage").addClass('bgColor-yellow');
     $("#infoMessage").html(data.msg);
