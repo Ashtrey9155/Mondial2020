@@ -15,6 +15,10 @@ let aircraftsObj = {
   "AN-2": {
     "name": "AN-2",
     "overPlaces": 10
+  },
+  "": {
+    "name": "NaN",
+    "overPlaces": 10
   }
 };
 
