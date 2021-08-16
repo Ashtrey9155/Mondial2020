@@ -30,7 +30,7 @@ function changeTab() {
 function ajaxLoads()
 {
   var xhr = $.ajax({
-    	url: 'ajax/getLoads.json?'+Math.random().toString().substr(2, 8),
+    	url: 'ajax/getLoads.json?rnd='+Math.random().toString().substr(2, 8),
       // async: false,
       type: 'GET',
       dataType: 'json',
@@ -103,7 +103,7 @@ function ajaxPeople(boardNumber) {
   // let today = new Date();
   let formatDate = getDate();
   let xhr = $.ajax({
-      url: 'ajax/getPeople_'+formatDate+'_'+boardNumber+'.json?'+Math.random().toString().substr(2, 8),
+      url: 'ajax/getPeople_'+formatDate+'_'+boardNumber+'.json?rnd='+Math.random().toString().substr(2, 8),
       type: 'GET',
       // async: false,
       dataType: 'json',
@@ -313,7 +313,7 @@ $('.loadsPeo').on('click','', function() {
 
 function loadMessage(){
   $.ajax({
-    url: '/ajax/message.json?'+Math.random().toString().substr(2, 8) ,
+    url: '/ajax/message.json?rnd='+Math.random().toString().substr(2, 8) ,
     type:'get',
     datatype: 'json',
     success: function(data){
