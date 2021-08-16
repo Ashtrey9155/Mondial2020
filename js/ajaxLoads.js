@@ -179,7 +179,8 @@ function getTableCellItem(topic, ...other) {
   var html;
 
   var [plane, number, timeLeft, overPlaces, freePlaces, n, pName] = other;
-
+  timeLeft = Number.parseInt(timeLeft);
+  let normolizeTimeLeft = (timeLeft < 0) ? "Departed": `${timeLeft} min`;
   switch (topic)
   {
     case "info":
@@ -199,7 +200,7 @@ function getTableCellItem(topic, ...other) {
           </div>
           <div class="d-flex flex-direction-column flex-end flex0_1_em11 width3_2em">
             <div class="color-grey">
-              ${timeLeft} min
+              ${normolizeTimeLeft}
             </div>
             <div class="d-flex flex-align-items-center color-grey">
               ${overPlaces - freePlaces} / ${overPlaces}
