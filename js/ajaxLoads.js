@@ -29,7 +29,7 @@ function getAircraftObj(planeName) {
     }
     return {
         "name": planeName,
-        "overPlaces": 10
+        "overPlaces": 0
     }
 }
 
@@ -193,6 +193,7 @@ function getTableCellItem(topic, ...other) {
   var [plane, number, timeLeft, overPlaces, freePlaces, n, pName] = other;
   timeLeft = Number.parseInt(timeLeft);
   let normolizeTimeLeft = (timeLeft < 0) ? "Departed": `${timeLeft} min`;
+  let normolizeFreePlaces = ((overPlaces - freePlaces) < 0) ? `free places: ${freePlaces}`: `${overPlaces - freePlaces} / ${overPlaces}`;
   switch (topic)
   {
     case "info":
@@ -215,7 +216,7 @@ function getTableCellItem(topic, ...other) {
               ${normolizeTimeLeft}
             </div>
             <div class="d-flex flex-align-items-center color-grey">
-              ${overPlaces - freePlaces} / ${overPlaces}
+              ${normolizeFreePlaces}
             </div>
           </div>
         </div>
