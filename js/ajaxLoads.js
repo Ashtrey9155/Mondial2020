@@ -18,6 +18,17 @@ let aircraftsObj = {
   }
 };
 
+function getAircraftObj(planeName) {
+    if (aircraftsObj.hasOwnProperty(planeName)) {
+        return aircraftsObj[planeaName];
+    }
+    return {
+        "name": planeName,
+        "overPlaces": 10
+    }
+}
+
+
 function changeTab() {
   $(".loadsTab").toggle();
   $(".loadsPeo").toggle();
@@ -69,7 +80,7 @@ function ajaxLoads()
     			for(i = 0; i < countLoads; i++)
     			{
     				var ld = data["loads"][i];
-            var objaircraft = aircraftsObj[normolize(ld["plane"])];
+            var objaircraft = getAircraftObj(normolize(ld["plane"]));
             // console.log("OBJ: " + objaircraft);
     				if (ld["freePlaces"] < 0) ld["freePlaces"] = 0;
           html += getTableCellItem("info", objaircraft["name"], ld["number"], ld["timeLeft"], objaircraft["overPlaces"], ld["freePlaces"]);
