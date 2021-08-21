@@ -23,7 +23,7 @@ let aircraftsObj = {
 };
 
 function getAircraftObj(planeName) {
-    let norm = normolize(planeName);
+    let norm = normalize(planeName);
     if (aircraftsObj.hasOwnProperty(norm)) {
         return aircraftsObj[norm];
     }
@@ -303,7 +303,7 @@ function sortObj(arr) {
   return arr.sort((a, b) => (a.number > b.number) ? 1 : -1);
 }
 
-function normolize(name) {
+function normalize(name) {
   name = name.replace(/\s/g, '');
   return name;
 }
