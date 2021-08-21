@@ -90,8 +90,8 @@ function ajaxLoads()
             var objaircraft = getAircraftObj(ld["plane"]);
             // console.log("OBJ: " + objaircraft);
     				if (ld["freePlaces"] < 0) ld["freePlaces"] = 0;
-            if (ld["data"] === "") ld["timeLeft"] = "999";
-            if (!ld["timeLeft"]) ld["timeLeft"] = "-999";
+            if (ld["data"] == "") ld["timeLeft"] = "999";
+            // if (!ld["timeLeft"]) ld["timeLeft"] = "-999";
           html += getTableCellItem("info", objaircraft["name"], ld["number"], ld["timeLeft"], objaircraft["overPlaces"], ld["freePlaces"]);
     			}		
     		   	html = html + "</tbody></table>";
