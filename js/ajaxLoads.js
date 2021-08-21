@@ -51,7 +51,7 @@ function ajaxLoads()
         // $("#flightSheduleTab").html(html);
         $("#loading").html(html);
         $("#loading").fadeIn("slow");
-        $("#dateInfo span").html(getDate("date"));
+        $("#dateInfo span.topHeadDate").html(getDate("date"));
         $("#time span").html(getDate("time"));
         $("#timeTopHead span").html(getDate("time"));
       },
@@ -64,7 +64,7 @@ function ajaxLoads()
           let html = getTableCellItem("noLoads");
           $("#flightSheduleTab").html(html);
           $("#flightSheduleTab td").fadeIn("slow");
-          $("#dateInfo div").html("<span class=\"topHead\">" + getDate("date") + " " + "</span><span>0 flights</span>");
+          $("#dateInfo div").html("<span class=\"topHead topHeadDate\">" + getDate("date") + " " + "</span><span>0 flights</span>");
     		}
     		else
     		{
