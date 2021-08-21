@@ -195,7 +195,7 @@ function getTableCellItem(topic, ...other) {
   var [plane, number, timeLeft, overPlaces, freePlaces, n, pName] = other;
   timeLeft = Number.parseInt(timeLeft);
   let normolizeTimeLeft = (timeLeft < 0) ? "Departed": `${timeLeft} min`;
-  normolizeTimeLeft = (timeLeft === 999) ? `? min`: `${timeLeft} min`;
+  normolizeTimeLeft = (timeLeft === 999) ? `? min`: normolizeTimeLeft;
   let normolizeFreePlaces = ((overPlaces - freePlaces) < 0) ? `free: ${freePlaces}`: `${overPlaces - freePlaces} / ${overPlaces}`;
   normolizeFreePlaces = (overPlaces == 0 && (overPlaces - freePlaces) == 0) ? "Full": normolizeFreePlaces;
   switch (topic)
