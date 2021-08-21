@@ -194,6 +194,7 @@ function getTableCellItem(topic, ...other) {
   timeLeft = Number.parseInt(timeLeft);
   let normolizeTimeLeft = (timeLeft < 0 || timeLeft === "") ? "Departed": `${timeLeft} min`;
   let normolizeFreePlaces = ((overPlaces - freePlaces) < 0) ? `free: ${freePlaces}`: `${overPlaces - freePlaces} / ${overPlaces}`;
+  normolizeFreePlaces = (overPlaces == 0 && (overPlaces - freePlaces) == 0) ? "Full": normolizeFreePlaces;
   switch (topic)
   {
     case "info":
