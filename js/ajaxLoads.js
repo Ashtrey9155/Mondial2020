@@ -90,6 +90,8 @@ function ajaxLoads()
             var objaircraft = getAircraftObj(ld["plane"]);
             // console.log("OBJ: " + objaircraft);
     				if (ld["freePlaces"] < 0) ld["freePlaces"] = 0;
+            if (ld["data"] === "") ld["timeLeft"] = "999";
+            if (!ld["timeLeft"]) ld["timeLeft"] = "-999";
           html += getTableCellItem("info", objaircraft["name"], ld["number"], ld["timeLeft"], objaircraft["overPlaces"], ld["freePlaces"]);
     			}		
     		   	html = html + "</tbody></table>";
@@ -192,7 +194,8 @@ function getTableCellItem(topic, ...other) {
 
   var [plane, number, timeLeft, overPlaces, freePlaces, n, pName] = other;
   timeLeft = Number.parseInt(timeLeft);
-  let normolizeTimeLeft = (timeLeft < 0 || timeLeft === "") ? "Departed": `${timeLeft} min`;
+  let normolizeTimeLeft = (timeLeft < 0) ? "Departed": `${timeLeft} min`;
+  normolizeTimeLeft = (timeLeft < 999) ? `? min`: `${timeLeft} min`;
   let normolizeFreePlaces = ((overPlaces - freePlaces) < 0) ? `free: ${freePlaces}`: `${overPlaces - freePlaces} / ${overPlaces}`;
   normolizeFreePlaces = (overPlaces == 0 && (overPlaces - freePlaces) == 0) ? "Full": normolizeFreePlaces;
   switch (topic)
