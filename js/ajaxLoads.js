@@ -17,8 +17,8 @@ let aircraftsObj = {
     "overPlaces": 10
   },
   "": {
-    "name": "NaN",
-    "overPlaces": 10
+    "name": "NoName",
+    "overPlaces": 0
   }
 };
 
